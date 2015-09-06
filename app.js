@@ -31,6 +31,9 @@ var addTask = function() {
 
   // appending to incompleteTaskHolder
   incompleteTaskHolder.appendChild(listItem);
+
+  // will set the listItem to be completed when checked
+  bindTaskEvents(listItem, completedTask);
 };
 
 var editTask = function() {
@@ -49,14 +52,18 @@ var completedTask = function() {
   // appends list Item to #completed-tasks
   var listItem = this.parentNode;
   completedTaskHolder.appendChild(listItem);
+  // will set the listItem to be incomplete when checked
+  bindTaskEvents(listItem, incompleteTask);
 };
 
 var incompleteTask = function() {
-  console.log("tasks still incomlete");
+  console.log("tasks still incomplete");
 
   // appends list Item to #incomplete-tasks
   var listItem = this.parentNode;
   incompleteTaskHolder.appendChild(listItem);
+  // will set the listItem to be completed when checked
+  bindTaskEvents(listItem, completedTask);
 };
 
 var bindTaskEvents = function(taskListItem, checkBoxEventHandler) {
@@ -64,11 +71,11 @@ var bindTaskEvents = function(taskListItem, checkBoxEventHandler) {
       editButton = taskListItem.querySelector('Button.edit'),
       deleteButton = taskListItem.querySelector('button.delete');
 
-      // Sets onclick handlers
-      editButton.onclick = editTask;
-      deleteButton.ocnlick = deleteTask;
-      checkBox.onchange = checkBoxEventHandler;
-      console.log('Binding');
+  // Sets onclick handlers
+  editButton.onclick = editTask;
+  deleteButton.ocnlick = deleteTask;
+  checkBox.onchange = checkBoxEventHandler;
+  console.log('Binding');
 };
 
 // Sets click handler to tasks()'s
