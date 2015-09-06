@@ -31,7 +31,6 @@ var addTask = function() {
 
   // appending to incompleteTaskHolder
   incompleteTaskHolder.appendChild(listItem);
-
 };
 
 var editTask = function() {
@@ -46,12 +45,18 @@ var deleteTask = function() {
 
 var completedTask = function() {
   console.log('completeing tasks');
-  // body...
+
+  // appends list Item to #completed-tasks
+  var listItem = this.parentNode;
+  completedTaskHolder.appendChild(listItem);
 };
 
 var incompleteTask = function() {
   console.log("tasks still incomlete");
-  // body...
+
+  // appends list Item to #incomplete-tasks
+  var listItem = this.parentNode;
+  incompleteTaskHolder.appendChild(listItem);
 };
 
 var bindTaskEvents = function(taskListItem, checkBoxEventHandler) {
