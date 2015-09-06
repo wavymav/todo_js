@@ -43,7 +43,11 @@ var editTask = function() {
 
 var deleteTask = function() {
   console.log('deleting');
-  // body...
+  // stores the parent li
+  var listItem = this.parentNode;
+  var ul = listItem.parentNode;
+
+  ul.removeChild(listItem);
 };
 
 var completedTask = function() {
@@ -73,7 +77,7 @@ var bindTaskEvents = function(taskListItem, checkBoxEventHandler) {
 
   // Sets onclick handlers
   editButton.onclick = editTask;
-  deleteButton.ocnlick = deleteTask;
+  deleteButton.onclick = deleteTask;
   checkBox.onchange = checkBoxEventHandler;
   console.log('Binding');
 };
