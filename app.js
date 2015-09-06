@@ -29,6 +29,9 @@ var addTask = function() {
   // calls newTaskElement() to create a new task
   var listItem = newTaskElement('New tasks');
 
+  // appending to incompleteTaskHolder
+  incompleteTaskHolder.appendChild(listItem);
+
 };
 
 var editTask = function() {
