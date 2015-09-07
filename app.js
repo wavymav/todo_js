@@ -51,6 +51,9 @@ var addTask = function() {
 
   // will set the listItem to be completed when checked
   bindTaskEvents(listItem, completedTask);
+
+  // sets the value back to an empty string
+  newTaskInput.value = '';
 };
 
 var editTask = function() {
