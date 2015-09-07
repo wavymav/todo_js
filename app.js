@@ -76,12 +76,18 @@ var editTask = function() {
   var listItem = this.parentNode,
       editInput = listItem.querySelector('input[type=text]'),
       label = listItem.querySelector('label'),
+      editButton = listItem.querySelector('button.edit'),
       containsClass = listItem.classList.contains('editMode');
+
   // if parent li class is 'editMode'
   if (containsClass) {
+    // sets button text to 'Edit'
+    editButton.innerText = 'Edit';
     // switch from edit mode
     label.innerText = editInput.value;
   } else {
+    // sets button text to 'Save'
+    editButton.innerText = 'Save';
     // switch to edit mode
     editInput.value = label.innerText;
   }
@@ -121,7 +127,7 @@ var incompleteTask = function() {
 
 var bindTaskEvents = function(taskListItem, checkBoxEventHandler) {
   var checkBox = taskListItem.querySelector('input[type=checkbox]'),
-      editButton = taskListItem.querySelector('Button.edit'),
+      editButton = taskListItem.querySelector('button.edit'),
       deleteButton = taskListItem.querySelector('button.delete');
 
   // Sets onclick handlers
