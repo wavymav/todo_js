@@ -41,6 +41,7 @@ var newTaskElement = function(taskString) {
 
 var addTask = function() {
   console.log('adding');
+
   // calls newTaskElement() to create a new task
   // gets the value of newTaskInput
   var listItem = newTaskElement(newTaskInput.value);
@@ -54,14 +55,30 @@ var addTask = function() {
 
 var editTask = function() {
   console.log('editing');
-  // body...
+
+  // stores the parent li
+  var listItem = this.parentNode,
+      editInput = listItem.querySelector('input[type=text]'),
+      label = listItem.querySelector('label'),
+      containsClass = listItem.classList.contains('editMode');
+  // if parent li class is 'editMode'
+  if (containsClass) {
+    // switch from edit mode
+    label.innerText = editInput.value;
+  } else {
+    // switch to edit mode
+    editInput.value = label.innerText;
+  }
+
+  listItem.classList.toggle('editMode');
 };
 
 var deleteTask = function() {
   console.log('deleting');
+
   // stores the parent li
-  var listItem = this.parentNode;
-  var ul = listItem.parentNode;
+  var listItem = this.parentNode,
+      ul = listItem.parentNode;
 
   ul.removeChild(listItem);
 };
