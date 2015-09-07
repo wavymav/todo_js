@@ -39,21 +39,34 @@ var newTaskElement = function(taskString) {
   return listItem;
 };
 
-var addTask = function() {
-  console.log('adding');
+// disable add button
+// var disableAddButton = function() {
+//   addButton.disabled = true;
+// };
+//
+// // enable add button
+// var enableAddButton = function() {
+//   addButton.disabled = false;
+// };
 
+var addTask = function() {
   // calls newTaskElement() to create a new task
   // gets the value of newTaskInput
-  var listItem = newTaskElement(newTaskInput.value);
+  var inputValue = newTaskInput.value,
+      listItem = newTaskElement(inputValue);
 
-  // appending to incompleteTaskHolder
-  incompleteTaskHolder.appendChild(listItem);
+  // if inputValue has a value then...
+  if (inputValue) {
+    // appending to incompleteTaskHolder
+    incompleteTaskHolder.appendChild(listItem);
 
-  // will set the listItem to be completed when checked
-  bindTaskEvents(listItem, completedTask);
+    // will set the listItem to be completed when checked
+    bindTaskEvents(listItem, completedTask);
 
-  // sets the value back to an empty string
-  newTaskInput.value = '';
+    // sets the value back to an empty string
+    newTaskInput.value = '';
+    console.log('adding');
+  }
 };
 
 var editTask = function() {
