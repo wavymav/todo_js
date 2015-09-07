@@ -42,7 +42,8 @@ var newTaskElement = function(taskString) {
 var addTask = function() {
   console.log('adding');
   // calls newTaskElement() to create a new task
-  var listItem = newTaskElement('New tasks');
+  // gets the value of newTaskInput
+  var listItem = newTaskElement(newTaskInput.value);
 
   // appending to incompleteTaskHolder
   incompleteTaskHolder.appendChild(listItem);
