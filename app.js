@@ -14,6 +14,21 @@ var newTaskElement = function(taskString) {
       editButton = document.createElement('button'),
       deleteButton = document.createElement('button');
 
+  // Modifiers
+  // modify input elemnts type porperty
+  checkbox.type = 'checkbox';
+  editInput.type = 'text';
+
+  // modify button text and class property
+  editButton.innerText = 'Edit';
+  editButton.className = 'edit';
+  deleteButton.innerText = 'Delete';
+  deleteButton.className = 'delete';
+
+  // modify label text with the taskString
+  label.innerText = taskString;
+
+
   // appending elements
   listItem.appendChild(checkbox);
   listItem.appendChild(label);
